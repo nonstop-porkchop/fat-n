@@ -1,0 +1,42 @@
+<UserControl x:Class="Fatn.Prototype.Pages.FeedPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Fatn.Prototype.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModels:FeedPageModel}">
+
+    <ListBox ItemsSource="{Binding Posts}">
+        <ListBox.ItemContainerStyle>
+            <Style>
+                <Setter Property="Panel.Background" Value="PaleTurquoise" />
+                <Setter Property="Panel.Margin" Value="5" />
+            </Style>
+        </ListBox.ItemContainerStyle>
+        <ListBox.ItemTemplate>
+            <DataTemplate DataType="{x:Type viewModels:Post}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="1" FontSize="16" Margin="5" Text="{Binding Poster.Nickname}" />
+                    <Image Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" x:Name="ProfileImage" Margin="5" Source="{Binding Poster.ProfileImage}">
+                        <Image.Clip>
+                            <EllipseGeometry RadiusX="45"
+                                             RadiusY="45"
+                                             Center="45,45" />
+                        </Image.Clip>
+                    </Image>
+                    <TextBlock Margin="5" Grid.Row="1" Grid.Column="1" Text="{Binding Content}" />
+                </Grid>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+
+</UserControl>
