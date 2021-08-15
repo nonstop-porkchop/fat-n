@@ -13,7 +13,7 @@
         <local:ApplicationModel>
             <local:ApplicationModel.Pages>
                 <viewModels:FeedPageModel Title="Community" />
-                <viewModels:InboxPageModel Title="Inbox" />
+                <viewModels:InboxPageModel Client="{StaticResource FatnClient}" CommandFactory="{StaticResource WpfCommandFactory}" Title="Inbox" />
                 <viewModels:MarketplacePageModel Title="Marketplace" />
             </local:ApplicationModel.Pages>
         </local:ApplicationModel>

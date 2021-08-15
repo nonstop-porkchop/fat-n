@@ -1,8 +1,10 @@
 ﻿<Application x:Class="Fatn.Prototype.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prototype="clr-namespace:Fatn.Prototype"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+         <prototype:FatnClient x:Key="FatnClient" />
+         <prototype:WpfCommandFactory x:Key="WpfCommandFactory" />
     </Application.Resources>
 </Application>

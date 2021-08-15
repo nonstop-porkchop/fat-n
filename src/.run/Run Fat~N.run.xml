@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run Fat~N" type="CompoundRunConfigurationType">
+    <toRun name="Fatn.Server" type="LaunchSettings" />
+    <toRun name="Fatn.Prototype" type="DotNetProject" />
+    <method v="2" />
+  </configuration>
+</component>

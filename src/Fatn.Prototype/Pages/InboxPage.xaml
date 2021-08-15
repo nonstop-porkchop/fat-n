@@ -1,4 +1,25 @@
 <UserControl x:Class="Fatn.Prototype.Pages.InboxPage"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:viewModels="clr-namespace:Fatn.Prototype.ViewModels"
+	mc:Ignorable="d"
+	d:DataContext="{d:DesignInstance viewModels:InboxPageModel }">
+	
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<TextBlock Grid.Row="0" Grid.Column="0" Text="Hello my name is..."/>
+		<TextBox Grid.Row="0" Grid.Column="1" Text="{Binding GreetName}" />
+		<TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding GreetingResponse}"/>
+		<Button Grid.Row="2" Grid.Column="0" Command="{Binding SendGreetCommand}" CommandParameter="{Binding GreetName}"/>
+	</Grid>
+	
 </UserControl>
