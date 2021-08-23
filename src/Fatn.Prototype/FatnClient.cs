@@ -13,7 +13,7 @@ namespace Fatn.Prototype
         public FatnClient()
         {
             _channel = GrpcChannel.ForAddress("https://localhost:5001");
-            _client =  new Greeter.GreeterClient(_channel);
+            _client = new Greeter.GreeterClient(_channel);
         }
 
         public async Task<string> Greet(string user)
