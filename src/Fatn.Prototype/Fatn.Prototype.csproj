@@ -17,13 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Protobuf Include="Protos\greet.proto">
-        <GrpcServices>Client</GrpcServices>
-        <Access>Public</Access>
-        <ProtoCompile>True</ProtoCompile>
-        <CompileOutputs>True</CompileOutputs>
-        <Generator>MSBuild:Compile</Generator>
-      </Protobuf>
+        <Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
     </ItemGroup>
 
 </Project>
