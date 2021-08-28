@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "Fatn.Prototype";
+option csharp_namespace = "Fatn.Api";
 
 package greet;
 

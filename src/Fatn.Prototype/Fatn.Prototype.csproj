@@ -9,15 +9,11 @@
     <ItemGroup>
       <PackageReference Include="Google.Protobuf" Version="3.17.3" />
       <PackageReference Include="Grpc.Net.Client" Version="2.38.0" />
-      <PackageReference Include="Grpc.Tools" Version="2.39.1">
-        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        <PrivateAssets>all</PrivateAssets>
-      </PackageReference>
       <PackageReference Include="JetBrains.Annotations" Version="2021.2.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
+      <ProjectReference Include="..\Fatn.Api\Fatn.Api.csproj" />
     </ItemGroup>
 
 </Project>
