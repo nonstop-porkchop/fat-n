@@ -1,0 +1,46 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:prototype="clr-namespace:Fatn.Prototype">
+    
+    <Brush x:Key="Background">MidnightBlue</Brush>
+    <Brush x:Key="Foreground">LightYellow</Brush>
+    <FontFamily x:Key="PrimaryFont">UD Digi Kyokasho NP-B</FontFamily>
+
+    <ControlTemplate x:Key="TabItemControlTemplate" TargetType="TabItem">
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" 
+                Height="100"
+                Width="100">
+            <ContentPresenter ContentSource="Header"
+                              HorizontalAlignment="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                              VerticalAlignment="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+        </Border>
+    </ControlTemplate>
+
+    <Style TargetType="prototype:MainWindow">
+        <Setter Property="Background" Value="{StaticResource Background}" />
+    </Style>
+    
+    <Style TargetType="TabControl">
+        <Setter Property="Background" Value="{StaticResource Background}" />
+        <Setter Property="BorderBrush" Value="{StaticResource Background}" />
+    </Style>
+
+    <Style TargetType="TabItem">
+        <Setter Property="Background" Value="{StaticResource Background}" />
+        <Setter Property="BorderBrush" Value="{StaticResource Background}" />
+        <Setter Property="Template" Value="{StaticResource TabItemControlTemplate}" />
+    </Style>
+    
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="{StaticResource Background}" />
+        <Setter Property="BorderBrush" Value="{StaticResource Background}" />
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+    </Style>
+
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
+        <Setter Property="FontFamily" Value="{StaticResource PrimaryFont}" />
+    </Style>
+    
+</ResourceDictionary>

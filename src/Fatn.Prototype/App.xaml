@@ -4,7 +4,15 @@
              xmlns:prototype="clr-namespace:Fatn.Prototype"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         <prototype:FatnClient x:Key="FatnClient" />
-         <prototype:WpfCommandFactory x:Key="WpfCommandFactory" />
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/FatnProtoTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <prototype:FatnClient x:Key="FatnClient" />
+            <prototype:WpfCommandFactory x:Key="WpfCommandFactory" />
+            
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
