@@ -55,6 +55,7 @@ namespace Fatn.Prototype.ViewModels
         {
             GreetingResponse = await Client.Greet(GreetName);
             GreetName = null;
+            ((IRaiseCanExecuteChangedEvent)SendGreetCommand).RaiseCanExecuteChanged();
         }
 
         public ICommand SendGreetCommand

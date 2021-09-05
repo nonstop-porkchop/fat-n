@@ -1,9 +1,10 @@
 using System;
 using System.Windows.Input;
+using Fatn.Prototype.ViewModels.Interface;
 
 namespace Fatn.Prototype.ViewModels.Wpf
 {
-    public class WpfRelayCommand : ICommand
+    public class WpfRelayCommand : ICommand, IRaiseCanExecuteChangedEvent
     {
         private readonly Func<object, bool> _canExecute;
         private readonly Action<object> _execute;
@@ -17,6 +18,8 @@ namespace Fatn.Prototype.ViewModels.Wpf
         public bool CanExecute(object? parameter) => _canExecute(parameter);
 
         public void Execute(object? parameter) => _execute(parameter);
+
+        public void RaiseCanExecuteChanged() => CommandManager.InvalidateRequerySuggested();
 
         public event EventHandler? CanExecuteChanged
         {
