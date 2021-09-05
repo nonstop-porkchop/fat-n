@@ -48,12 +48,13 @@ namespace Fatn.Prototype.ViewModels
 
         private bool CanExecuteSendGreet(object arg)
         {
-            return Client != null;
+            return Client != null && !string.IsNullOrWhiteSpace(GreetName);
         }
 
         private async void ExecuteSendGreet(object obj)
         {
-            GreetingResponse = await Client.Greet((string)obj);
+            GreetingResponse = await Client.Greet(GreetName);
+            GreetName = null;
         }
 
         public ICommand SendGreetCommand

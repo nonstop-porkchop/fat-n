@@ -17,9 +17,12 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<TextBlock Grid.Row="0" Grid.Column="0" Text="Hello my name is..."/>
-		<TextBox Grid.Row="0" Grid.Column="1" Text="{Binding GreetName}" />
+		<TextBox Grid.Row="0" Grid.Column="1" Text="{Binding GreetName, UpdateSourceTrigger=PropertyChanged}" />
 		<TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding GreetingResponse}"/>
-		<Button Grid.Row="2" Grid.Column="0" Command="{Binding SendGreetCommand}" CommandParameter="{Binding GreetName}"/>
+		<Button Grid.Row="2"
+		        Grid.Column="0"
+		        Command="{Binding SendGreetCommand}" 
+		        Content="Send"/>
 	</Grid>
 	
 </UserControl>
