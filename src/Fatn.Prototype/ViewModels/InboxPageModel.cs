@@ -1,6 +1,8 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Input;
+using Fatn.Api;
+using Fatn.Prototype.ViewModels.Interface;
 
 namespace Fatn.Prototype.ViewModels
 {

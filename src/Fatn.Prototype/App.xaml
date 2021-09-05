@@ -1,7 +1,8 @@
 ﻿<Application x:Class="Fatn.Prototype.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:prototype="clr-namespace:Fatn.Prototype"
+             xmlns:api="clr-namespace:Fatn.Api;assembly=Fatn.Api"
+             xmlns:wpf="clr-namespace:Fatn.Prototype.ViewModels.Wpf"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -10,8 +11,8 @@
                 <ResourceDictionary Source="Themes/FatnProtoTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <prototype:FatnClient x:Key="FatnClient" />
-            <prototype:WpfCommandFactory x:Key="WpfCommandFactory" />
+            <api:FatnClient x:Key="FatnClient" />
+            <wpf:WpfCommandFactory x:Key="WpfCommandFactory" />
             
         </ResourceDictionary>
     </Application.Resources>

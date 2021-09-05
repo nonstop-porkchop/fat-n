@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Input;
 
-namespace Fatn.Prototype
+namespace Fatn.Prototype.ViewModels.Interface
 {
     public interface ICommandFactory
     {

@@ -1,9 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using Fatn.Api;
 using Grpc.Net.Client;
 
-namespace Fatn.Prototype
+namespace Fatn.Api
 {
     public class FatnClient : IDisposable
     {

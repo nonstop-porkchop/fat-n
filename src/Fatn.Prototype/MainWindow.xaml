@@ -3,20 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Fatn.Prototype"
         xmlns:viewModels="clr-namespace:Fatn.Prototype.ViewModels"
         xmlns:pages="clr-namespace:Fatn.Prototype.Pages"
         mc:Ignorable="d"
         Title="Fat~N Prototype" Height="450" Width="800">
     
     <Window.DataContext>
-        <local:ApplicationModel>
-            <local:ApplicationModel.Pages>
+        <viewModels:ApplicationModel>
+            <viewModels:ApplicationModel.Pages>
                 <viewModels:FeedPageModel Title="Community" />
                 <viewModels:InboxPageModel Client="{StaticResource FatnClient}" CommandFactory="{StaticResource WpfCommandFactory}" Title="Inbox" />
                 <viewModels:MarketplacePageModel Title="Marketplace" />
-            </local:ApplicationModel.Pages>
-        </local:ApplicationModel>
+            </viewModels:ApplicationModel.Pages>
+        </viewModels:ApplicationModel>
     </Window.DataContext>
     
     <TabControl TabStripPlacement="Left" ItemsSource="{Binding Pages}">

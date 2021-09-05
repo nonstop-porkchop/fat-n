@@ -1,7 +1,8 @@
 using System;
 using System.Windows.Input;
+using Fatn.Prototype.ViewModels.Interface;
 
-namespace Fatn.Prototype
+namespace Fatn.Prototype.ViewModels.Wpf
 {
     public class WpfCommandFactory : ICommandFactory
     {

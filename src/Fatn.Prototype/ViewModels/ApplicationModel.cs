@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
-namespace Fatn.Prototype
+namespace Fatn.Prototype.ViewModels
 {
     public sealed class ApplicationModel : INotifyPropertyChanged
     {
