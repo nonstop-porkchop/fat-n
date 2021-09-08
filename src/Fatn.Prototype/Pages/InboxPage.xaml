@@ -1,28 +1,56 @@
 <UserControl x:Class="Fatn.Prototype.Pages.InboxPage"
-	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:viewModels="clr-namespace:Fatn.Prototype.ViewModels"
-	mc:Ignorable="d"
-	d:DataContext="{d:DesignInstance viewModels:InboxPageModel }">
-	
-	<Grid>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition />
-			<ColumnDefinition />
-		</Grid.ColumnDefinitions>
-		<Grid.RowDefinitions>
-			<RowDefinition />
-			<RowDefinition />
-			<RowDefinition />
-		</Grid.RowDefinitions>
-		<TextBlock Grid.Row="0" Grid.Column="0" Text="Hello my name is..."/>
-		<TextBox Grid.Row="0" Grid.Column="1" Text="{Binding GreetName, UpdateSourceTrigger=PropertyChanged}" />
-		<TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding GreetingResponse}"/>
-		<Button Grid.Row="2"
-		        Grid.Column="0"
-		        Command="{Binding SendGreetCommand}" 
-		        Content="Send"/>
-	</Grid>
-	
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Fatn.Prototype.ViewModels"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModels:InboxPageModel }">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"
+                   Text="This is a demo conversation" />
+
+        <ItemsControl Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Background="{StaticResource Background}"
+                      ItemsSource="{Binding SelectedConversation.Messages}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="viewModels:TextualMessage">
+                    <Border CornerRadius="5" Margin="8" Padding="12" x:Name="MessageBubble"
+                            Background="{StaticResource Highlight}">
+                        <Border.Style>
+                            <Style TargetType="Border">
+                                <Setter Property="HorizontalAlignment" Value="Left" />
+                            </Style>
+                        </Border.Style>
+                        <TextBlock x:Name="MessageTextBlock" Text="{Binding MessageText}" />
+                    </Border>
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding FromCurrentUser}" Value="True">
+                            <Setter TargetName="MessageTextBlock" Property="TextAlignment" Value="Right" />
+                            <Setter TargetName="MessageBubble" Property="HorizontalAlignment" Value="Right" />
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <TextBox VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"
+                 Text="{Binding GreetName, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Button Grid.Row="2"
+                Grid.Column="1"
+                Command="{Binding SendGreetCommand}"
+                Content="Send" />
+    </Grid>
+
 </UserControl>

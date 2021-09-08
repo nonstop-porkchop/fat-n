@@ -12,7 +12,7 @@ namespace Fatn.Prototype.ViewModels
         private ICommandFactory _commandFactory;
         private ICommand _sendGreetCommand;
         private string _greetName;
-        private string _greetingResponse;
+        private Conversation _selectedConversation = new Conversation();
 
         public FatnClient Client
         {
@@ -53,9 +53,11 @@ namespace Fatn.Prototype.ViewModels
 
         private async void ExecuteSendGreet(object obj)
         {
-            GreetingResponse = await Client.Greet(GreetName);
+            SelectedConversation.Messages.Add(new TextualMessage { MessageText = GreetName, FromCurrentUser = true });
+            var greetingResponse = await Client.Greet(GreetName);
             GreetName = null;
             ((IRaiseCanExecuteChangedEvent)SendGreetCommand).RaiseCanExecuteChanged();
+            SelectedConversation.Messages.Add(new TextualMessage { MessageText = greetingResponse, FromCurrentUser = false });
         }
 
         public ICommand SendGreetCommand
@@ -80,13 +82,13 @@ namespace Fatn.Prototype.ViewModels
             }
         }
 
-        public string GreetingResponse
+        public Conversation SelectedConversation
         {
-            get => _greetingResponse;
+            get => _selectedConversation;
             set
             {
-                if (value == _greetingResponse) return;
-                _greetingResponse = value;
+                if (Equals(value, _selectedConversation)) return;
+                _selectedConversation = value;
                 OnPropertyChanged();
             }
         }
