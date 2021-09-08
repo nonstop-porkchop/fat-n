@@ -2,9 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:prototype="clr-namespace:Fatn.Prototype">
     
-    <Brush x:Key="Background">MidnightBlue</Brush>
-    <Brush x:Key="Highlight">DodgerBlue</Brush>
-    <Brush x:Key="Lowlight">SteelBlue</Brush>
+    <Brush x:Key="Background">SaddleBrown</Brush>
+    <Brush x:Key="Highlight">RosyBrown</Brush>
+    <Brush x:Key="Lowlight">DarkGoldenrod</Brush>
     <Brush x:Key="Foreground">LightYellow</Brush>
     <FontFamily x:Key="PrimaryFont">UD Digi Kyokasho NP-B</FontFamily>
 
