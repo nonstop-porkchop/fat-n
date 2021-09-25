@@ -118,19 +118,19 @@ class _MyHomePageState extends State<MyHomePage> {
               decoration: BoxDecoration(color: Colors.brown),
             ),
             ListTile(
-              title: const Text('Inbox'),
+              title: Row(children: const [Icon(Icons.mail), Text('Inbox')]),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: const Text('Community'),
+              title: Row(children: const [Icon(Icons.assignment_ind_sharp), Text('Community')]),
               onTap: () {
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: const Text('Marketplace'),
+              title: Row(children: const [Icon(Icons.shopping_bag), Text('Marketplace')]),
               onTap: () {
                 Navigator.pop(context);
               },
