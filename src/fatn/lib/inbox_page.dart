@@ -10,8 +10,8 @@ class InboxPage extends StatefulWidget {
 class _InboxPageState extends State<InboxPage> {
   @override
   Widget build(BuildContext context) {
-    return ListView(children: [
-      Card(child: Text('bing chilling'))
-    ],);
+    return ListView(
+      children: const [Card(child: Text('bing chilling'))],
+    );
   }
 }
