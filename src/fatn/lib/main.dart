@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'start_page.dart';
 import 'inbox_page.dart';
+import 'community_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -108,7 +109,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text('Community')
               ]),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const MyHomePage(
+                          title: 'Community', pageBody: CommunityPage()),
+                    ));
               },
             ),
             ListTile(
