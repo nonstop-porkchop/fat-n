@@ -1,16 +1,28 @@
+import 'package:fatn/error_page.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+
 import 'start_page.dart';
 import 'inbox_page.dart';
+import 'loading_page.dart';
 import 'community_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<MyApp> {
+  /// The future is part of the state of our widget. We should not call `initializeApp`
+  /// directly inside [build].
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,7 +40,24 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.brown,
         brightness: Brightness.dark,
       ),
-      home: const MyHomePage(title: 'Fat~N Home', pageBody: StartPage()),
+      home: FutureBuilder(
+        // Initialize FlutterFire:
+        future: _initialization,
+        builder: (context, snapshot) {
+          // Check for errors
+          if (snapshot.hasError) {
+            return const ErrorPage();
+          }
+
+          // Once complete, show your application
+          if (snapshot.connectionState == ConnectionState.done) {
+            return const MyHomePage(title: 'Fat~N Home', pageBody: StartPage());
+          }
+
+          // Otherwise, show something whilst waiting for initialization to complete
+          return const LoadingPage();
+        },
+      ),
     );
   }
 }
