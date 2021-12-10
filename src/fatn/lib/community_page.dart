@@ -10,7 +10,16 @@ class CommunityPage extends StatefulWidget {
 class _CommunityPageState extends State<CommunityPage> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: postsBuilder, itemExtent: 120);
+    return Scaffold(
+        body: ListView.builder(itemBuilder: postsBuilder, itemExtent: 120),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => const NewPostPage())),
+          tooltip: 'New',
+          child: const Icon(Icons.add),
+        ));
   }
 
   Widget postsBuilder(BuildContext context, int index) {
@@ -61,5 +70,30 @@ class _CommunityPageState extends State<CommunityPage> {
 
   void mood() {
     throw Exception('Not implemented.');
+  }
+}
+
+class NewPostPage extends StatefulWidget {
+  const NewPostPage({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _NewPostPageState();
+}
+
+class _NewPostPageState extends State<NewPostPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          TextButton(
+            onPressed: () => throw Exception('Not implemented.'),
+            child: const Text("Share"),
+          ),
+          const TextField(),
+          const Text("TODO: Select who to share with...")
+        ],
+      ),
+    );
   }
 }
