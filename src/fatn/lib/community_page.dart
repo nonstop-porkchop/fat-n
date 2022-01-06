@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CommunityPage extends StatefulWidget {
   const CommunityPage({Key? key}) : super(key: key);
@@ -81,16 +82,24 @@ class NewPostPage extends StatefulWidget {
 }
 
 class _NewPostPageState extends State<NewPostPage> {
+  CollectionReference posts = FirebaseFirestore.instance.collection('posts');
+  String bodyText = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           TextButton(
-            onPressed: () => throw Exception('Not implemented.'),
+            onPressed: () => posts.add({'body_text': bodyText}).then(
+                (value) => Navigator.pop(context)),
             child: const Text("Share"),
           ),
-          const TextField(),
+          TextField(onChanged: (value) {
+            setState(() {
+              bodyText = value;
+            });
+          }),
           const Text("TODO: Select who to share with...")
         ],
       ),
