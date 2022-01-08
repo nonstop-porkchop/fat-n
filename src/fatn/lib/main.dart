@@ -21,7 +21,12 @@ class MyApp extends StatefulWidget {
 class _AppState extends State<MyApp> {
   /// The future is part of the state of our widget. We should not call `initializeApp`
   /// directly inside [build].
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: "AIzaSyCujxRy0ot_fx3t0xEwfjpCZgPWG_yFqZE",
+          appId: "1:556606331675:web:bf017e1bd921a64e3c51be",
+          messagingSenderId: "556606331675",
+          projectId: "fatn-f9508"));
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +89,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
