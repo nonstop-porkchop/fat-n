@@ -10,8 +10,10 @@ class LoadingPage extends StatefulWidget {
 class _LoadingPageState extends State<LoadingPage> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('bing chilling'),
+    return const Scaffold(
+      body: Center(
+        child: Text('LOADING...'),
+      ),
     );
   }
 }
